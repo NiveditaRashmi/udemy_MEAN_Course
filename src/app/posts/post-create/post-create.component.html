@@ -1,0 +1,36 @@
+<!-- <p>post-create works!</p>
+<textarea rows="6" [value]="'Text'" #postInput></textarea>
+<hr>
+<button (click)="onAddPost(postInput)">Save Post</button>
+<p>{{ newPost }} </p> -->
+
+
+<!-- this method uses two way binding instead of form. -->
+<!-- <mat-card>
+  <mat-form-field>
+    <input matInput type="text" [(ngModel)] = "enteredTitle">
+  </mat-form-field>
+  <mat-form-field>
+    <textarea rows="6" [(ngModel)]="enteredContent" matInput></textarea>
+  </mat-form-field>
+  <button mat-raised-button color="accent" (click)="onAddPost()">Save Post</button>
+
+</mat-card> -->
+
+<mat-card>
+  <!-- this postform="ngForm" gives access to the form elements in angular -->
+  <form #postForm="ngForm" (submit)="onAddPost(postForm)">
+    <mat-form-field>
+      <!-- adding required gives error message but the form still gets submitted -->
+      <input matInput type="text"  name="title" ngModel required #title="ngModel">
+      <mat-error *ngIf="title.invalid"> Please enter a post title. </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea rows="6" matInput name="content" ngModel required #content="ngModel"></textarea>
+      <mat-error *ngIf="content.invalid">Please enter a post content. </mat-error>
+
+    </mat-form-field>
+    <button mat-raised-button color="accent" type="submit ">Save Post</button>
+  </form>
+</mat-card>
+
