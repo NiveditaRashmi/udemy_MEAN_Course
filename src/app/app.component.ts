@@ -8,11 +8,5 @@ import { Post }  from './posts/post.model';
 })
 export class AppComponent {
 
-  storedPosts: Post[] = [];
-
-  onPostAdded(post) {
-    // console.log("inside app", post)
-    this.storedPosts.push(post);
-  }
-  title = 'socialApp';
+ 
 }

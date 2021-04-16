@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import { PostListComponent } from './posts/post-list/post-list.component';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { PostsService } from './posts/posts.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,9 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatToolbarModule
 
   ],
-  providers: [],
+  providers: [
+    PostsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
